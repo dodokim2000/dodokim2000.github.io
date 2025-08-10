@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ko"><head>
+<html lang="ko">
+<head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>가족스 소개</title>
+<title>우리 가족 소개</title>
 <meta name="description" content="가족을 소개하는 간단한 웹페이지" />
 <style>
   :root{
@@ -84,7 +85,7 @@
   .tag{font-size:12px;padding:4px 8px;border-radius:999px;background:rgba(0,0,0,.06)}
   :root.dark .tag{background:rgba(255,255,255,.08)}
   .quote{font-size:14px;color:var(--muted)}
-  .actions{display:flex; gap:8px}
+  .actions{display:flex; gap:8px; flex-wrap:wrap}
   .small{font-size:13px}
 
   /* Timeline */
@@ -149,7 +150,7 @@
     <header>
       <div class="brand">
         <div class="logo" aria-hidden="true">家</div>
-        <h1>가족스</h1>
+        <h1>우리 가족</h1>
       </div>
       <div class="toolbar">
         <button class="btn" id="themeBtn" title="다크모드 토글">🌙</button>
@@ -159,9 +160,9 @@
 
     <section class="hero" aria-labelledby="heroTitle">
       <div>
-        <h2 id="heroTitle">함께라서 더 따뜻한 가족스</h2>
-        <p id="heroDesc">행복한 우리 가족</p>
-        <div class="badges" id="badges"><span class="badge">#함께</span><span class="badge">#소확행</span><span class="badge">#우리집</span><span class="badge">#행복한순간</span></div>
+        <h2 id="heroTitle">함께라서 더 따뜻한 우리 집</h2>
+        <p id="heroDesc">우리 가족의 소개, 추억, 그리고 소소한 이야기를 한 곳에.</p>
+        <div class="badges" id="badges"></div>
         <nav class="tabs" aria-label="탭">
           <button class="tab active" data-tab="members">가족 구성원</button>
           <button class="tab" data-tab="timeline">가족 타임라인</button>
@@ -169,152 +170,32 @@
           <button class="tab" data-tab="contact">연락처</button>
         </nav>
       </div>
-      <img id="heroImage" alt="우리 가족 대표 이미지" class="avatar" src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'1200'%20height%3D'825'%3E%0A%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D'w'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%2394a3b8'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23475569'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23w)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'50%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'48'%20fill%3D'white'%20opacity%3D'.9'%3E%EC%9A%B0%EB%A6%AC%20%EA%B0%80%EC%A1%B1%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" />
+      <img id="heroImage" alt="우리 가족 대표 이미지" class="avatar" />
     </section>
 
     <section id="members" class="panel">
       <h3>가족 구성원</h3>
-      <div class="grid" id="memberGrid"><article class="card">
-      <img class="avatar" alt="김경락 사진" src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'800'%20height%3D'600'%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%232563eb'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23111'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23g)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'55%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'140'%20fill%3D'white'%20font-weight%3D'800'%3E%EC%95%84%EB%B2%84%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" loading="lazy" />
-      <div class="row">
-        <div>
-          <h4 class="name">김경락</h4>
-          <div class="role">든든한 가장</div>
-        </div>
-        <button class="btn small" data-idx="0" aria-label="김경락 상세보기">상세</button>
-      </div>
-      <div class="tags"><span class="tag">등산</span><span class="tag">요리</span><span class="tag">독서</span></div>
-      <div class="quote">“말보단 행동으로 보여준다.”</div>
-      <div class="actions">
-        <a class="btn small" href="tel:01000000000" target="_blank" rel="noopener">📎 전화</a><a class="btn small" href="mailto:father@example.com" target="_blank" rel="noopener">📎 이메일</a>
-      </div>
-    </article><article class="card">
-      <img class="avatar" alt="어머니 사진" src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'800'%20height%3D'600'%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23ec4899'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23111'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23g)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'55%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'140'%20fill%3D'white'%20font-weight%3D'800'%3E%EC%96%B4%EB%A8%B8%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" loading="lazy" />
-      <div class="row">
-        <div>
-          <h4 class="name">어머니</h4>
-          <div class="role">집안의 중심</div>
-        </div>
-        <button class="btn small" data-idx="1" aria-label="어머니 상세보기">상세</button>
-      </div>
-      <div class="tags"><span class="tag">베이킹</span><span class="tag">가드닝</span><span class="tag">드라마</span></div>
-      <div class="quote">“사랑은 정성에서 나온다.”</div>
-      <div class="actions">
-        <a class="btn small" href="tel:01011111111" target="_blank" rel="noopener">📎 전화</a>
-      </div>
-    </article><article class="card">
-      <img class="avatar" alt="나 사진" src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'800'%20height%3D'600'%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%2310b981'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23111'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23g)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'55%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'140'%20fill%3D'white'%20font-weight%3D'800'%3E%EB%82%98%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" loading="lazy" />
-      <div class="row">
-        <div>
-          <h4 class="name">나</h4>
-          <div class="role">기술 담당</div>
-        </div>
-        <button class="btn small" data-idx="2" aria-label="나 상세보기">상세</button>
-      </div>
-      <div class="tags"><span class="tag">코딩</span><span class="tag">사진</span><span class="tag">게임</span></div>
-      <div class="quote">“새로운 걸 배우는 게 제일 재밌다.”</div>
-      <div class="actions">
-        <a class="btn small" href="mailto:me@example.com" target="_blank" rel="noopener">📎 이메일</a>
-      </div>
-    </article><article class="card">
-      <img class="avatar" alt="동생 사진" src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'800'%20height%3D'600'%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23f59e0b'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23111'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23g)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'55%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'140'%20fill%3D'white'%20font-weight%3D'800'%3E%EB%8F%99%EC%83%9D%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" loading="lazy" />
-      <div class="row">
-        <div>
-          <h4 class="name">동생</h4>
-          <div class="role">분위기 메이커</div>
-        </div>
-        <button class="btn small" data-idx="3" aria-label="동생 상세보기">상세</button>
-      </div>
-      <div class="tags"><span class="tag">댄스</span><span class="tag">야구</span><span class="tag">여행</span></div>
-      <div class="quote">“웃으면 복이 온다!”</div>
-      <div class="actions">
-        <a class="btn small" href="mailto:@sibling" target="_blank" rel="noopener">📎 인스타</a>
-      </div>
-    </article></div>
+      <div class="grid" id="memberGrid"></div>
     </section>
 
-    <section id="timeline" class="panel" hidden="">
+    <section id="timeline" class="panel" hidden>
       <h3>가족 타임라인</h3>
       <div class="timeline">
-        <ul class="tl" id="tl"><li class="item">
-      <time>2000-03-01</time>
-      <h4>이사</h4>
-      <p>지금의 동네로 이사 왔어요.</p>
-    </li><li class="item">
-      <time>2005-09-01</time>
-      <h4>첫 등교</h4>
-      <p>가족 모두가 학교 앞에서 응원!</p>
-    </li><li class="item">
-      <time>2012-08-15</time>
-      <h4>여름 여행</h4>
-      <p>강원도에서의 잊지 못할 피서</p>
-    </li><li class="item">
-      <time>2020-02-10</time>
-      <h4>가족 사진 촬영</h4>
-      <p>스튜디오에서 단체 사진</p>
-    </li></ul>
+        <ul class="tl" id="tl"></ul>
       </div>
     </section>
 
-    <section id="gallery" class="panel" hidden="">
+    <section id="gallery" class="panel" hidden>
       <h3>사진첩</h3>
-      <div class="gallery" id="galleryGrid"><img alt="가족 사진 1" loading="lazy" src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'1000'%20height%3D'1000'%3E%0A%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D's'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23f59e0b'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ef4444'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23s)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'50%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'56'%20fill%3D'white'%20opacity%3D'.9'%3E%EB%B4%84%20%EC%86%8C%ED%92%8D%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" /><img alt="가족 사진 2" loading="lazy" src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'1000'%20height%3D'1000'%3E%0A%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D's'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23f59e0b'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ef4444'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23s)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'50%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'56'%20fill%3D'white'%20opacity%3D'.9'%3E%EA%B0%95%EC%95%84%EC%A7%80%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" /><img alt="가족 사진 3" loading="lazy" src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'1000'%20height%3D'1000'%3E%0A%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D's'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23f59e0b'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ef4444'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23s)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'50%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'56'%20fill%3D'white'%20opacity%3D'.9'%3E%EA%B0%80%EC%A1%B1%20%EC%8B%9D%EC%82%AC%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" /><img alt="가족 사진 4" loading="lazy" src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'1000'%20height%3D'1000'%3E%0A%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D's'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23f59e0b'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ef4444'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23s)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'50%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'56'%20fill%3D'white'%20opacity%3D'.9'%3E%EC%97%AC%ED%96%89%201%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" /><img alt="가족 사진 5" loading="lazy" src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'1000'%20height%3D'1000'%3E%0A%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D's'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23f59e0b'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ef4444'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23s)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'50%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'56'%20fill%3D'white'%20opacity%3D'.9'%3E%EC%97%AC%ED%96%89%202%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" /><img alt="가족 사진 6" loading="lazy" src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'1000'%20height%3D'1000'%3E%0A%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D's'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23f59e0b'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ef4444'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23s)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'50%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'56'%20fill%3D'white'%20opacity%3D'.9'%3E%EA%B8%B0%EB%85%90%EC%9D%BC%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" /></div>
+      <div class="gallery" id="galleryGrid"></div>
     </section>
 
-    <section id="contact" class="panel" hidden="">
+    <section id="contact" class="panel" hidden>
       <h3>연락처</h3>
-      <div class="grid" id="contactGrid"><article class="card">
-      <div class="row">
-        <div>
-          <h4 class="name">김경락</h4>
-          <div class="role">든든한 가장</div>
-        </div>
-        <img src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'800'%20height%3D'600'%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%232563eb'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23111'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23g)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'55%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'140'%20fill%3D'white'%20font-weight%3D'800'%3E%EC%95%84%EB%B2%84%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" alt="김경락 아바타" style="width:56px;height:56px;border-radius:12px;object-fit:cover" />
-      </div>
-      <div class="tags"><span class="tag">등산</span><span class="tag">요리</span><span class="tag">독서</span></div>
-      <div class="actions">
-        <a class="btn small" href="tel:01000000000" target="_blank" rel="noopener">📞 전화: 010-0000-0000</a><a class="btn small" href="mailto:father@example.com" target="_blank" rel="noopener">📞 이메일: father@example.com</a>
-      </div>
-    </article><article class="card">
-      <div class="row">
-        <div>
-          <h4 class="name">어머니</h4>
-          <div class="role">집안의 중심</div>
-        </div>
-        <img src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'800'%20height%3D'600'%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23ec4899'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23111'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23g)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'55%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'140'%20fill%3D'white'%20font-weight%3D'800'%3E%EC%96%B4%EB%A8%B8%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" alt="어머니 아바타" style="width:56px;height:56px;border-radius:12px;object-fit:cover" />
-      </div>
-      <div class="tags"><span class="tag">베이킹</span><span class="tag">가드닝</span><span class="tag">드라마</span></div>
-      <div class="actions">
-        <a class="btn small" href="tel:01011111111" target="_blank" rel="noopener">📞 전화: 010-1111-1111</a>
-      </div>
-    </article><article class="card">
-      <div class="row">
-        <div>
-          <h4 class="name">나</h4>
-          <div class="role">기술 담당</div>
-        </div>
-        <img src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'800'%20height%3D'600'%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%2310b981'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23111'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23g)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'55%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'140'%20fill%3D'white'%20font-weight%3D'800'%3E%EB%82%98%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" alt="나 아바타" style="width:56px;height:56px;border-radius:12px;object-fit:cover" />
-      </div>
-      <div class="tags"><span class="tag">코딩</span><span class="tag">사진</span><span class="tag">게임</span></div>
-      <div class="actions">
-        <a class="btn small" href="mailto:me@example.com" target="_blank" rel="noopener">📞 이메일: me@example.com</a>
-      </div>
-    </article><article class="card">
-      <div class="row">
-        <div>
-          <h4 class="name">동생</h4>
-          <div class="role">분위기 메이커</div>
-        </div>
-        <img src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'800'%20height%3D'600'%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23f59e0b'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23111'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23g)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'55%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'140'%20fill%3D'white'%20font-weight%3D'800'%3E%EB%8F%99%EC%83%9D%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" alt="동생 아바타" style="width:56px;height:56px;border-radius:12px;object-fit:cover" />
-      </div>
-      <div class="tags"><span class="tag">댄스</span><span class="tag">야구</span><span class="tag">여행</span></div>
-      <div class="actions">
-        <a class="btn small" href="mailto:@sibling" target="_blank" rel="noopener">📞 인스타: @sibling</a>
-      </div>
-    </article></div>
+      <div class="grid" id="contactGrid"></div>
     </section>
 
-    <footer>© <span id="year">2025</span> 우리 가족</footer>
+    <footer>© <span id="year"></span> 우리 가족</footer>
   </div>
 
   <!-- 상세 보기 모달 -->
@@ -322,23 +203,7 @@
     <div class="backdrop" id="backdrop"></div>
     <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="close" id="modalClose" aria-label="닫기">✕</button>
-      <div id="modalBody">
-    <h3 id="modalTitle" style="margin:8px 0 12px;font-size:22px">김경락 · <span class="muted">든든한 가장</span></h3>
-    <div style="display:grid;grid-template-columns: 1fr 1fr; gap:12px">
-      <img src="data:image/svg+xml;utf8,%0A%20%20%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'800'%20height%3D'600'%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'0%25'%20stop-color%3D'%232563eb'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23111'%20stop-opacity%3D'0.85'%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23g)'%2F%3E%0A%20%20%20%20%3Ctext%20x%3D'50%25'%20y%3D'55%25'%20dominant-baseline%3D'middle'%20text-anchor%3D'middle'%0A%20%20%20%20%20%20font-family%3D'system-ui%2C%20-apple-system%2C%20Segoe%20UI%2C%20Roboto%2C%20Noto%20Sans%20KR%2C%20sans-serif'%0A%20%20%20%20%20%20font-size%3D'140'%20fill%3D'white'%20font-weight%3D'800'%3E%EC%95%84%EB%B2%84%3C%2Ftext%3E%0A%20%20%3C%2Fsvg%3E" alt="김경락 사진" style="width:100%;aspect-ratio:16/11;object-fit:cover;border-radius:12px" />
-      <div>
-        <p class="muted">“말보단 행동으로 보여준다.”</p>
-        <p><strong>생일:</strong> 1970-05-21</p>
-        <p><strong>좋아하는 것:</strong><br />
-          🍽️ 된장찌개 · 🎧 7080 발라드 · 🎯 등산
-        </p>
-        <div class="tags"><span class="tag">등산</span><span class="tag">요리</span><span class="tag">독서</span></div>
-        <div class="actions" style="margin-top:10px">
-          <a class="btn small" href="tel:01000000000" target="_blank" rel="noopener">📎 전화</a><a class="btn small" href="mailto:father@example.com" target="_blank" rel="noopener">📎 이메일</a>
-        </div>
-      </div>
-    </div>
-  </div>
+      <div id="modalBody"></div>
     </div>
   </div>
 
@@ -355,7 +220,7 @@
 
 <script>
 /** ======================
- *  데이터 (원하면 편집기에서 교체)
+ *  데이터 (편집기에서 교체 가능)
  *  ====================== */
 const DATA = {
   title: "우리 가족",
@@ -427,50 +292,50 @@ const DATA = {
 function avatar(text, color="#3b82f6"){
   const initials = text.trim().slice(0,2);
   const svg = `
-  &lt;svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'&gt;
-    &lt;defs&gt;
-      &lt;linearGradient id='g' x1='0' y1='0' x2='1' y2='1'&gt;
-        &lt;stop offset='0%' stop-color='${color}' stop-opacity='0.85'/&gt;
-        &lt;stop offset='100%' stop-color='#111' stop-opacity='0.85'/&gt;
-      &lt;/linearGradient&gt;
-    &lt;/defs&gt;
-    &lt;rect width='100%' height='100%' fill='url(#g)'/&gt;
-    &lt;text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle'
+  <svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'>
+    <defs>
+      <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+        <stop offset='0%' stop-color='${color}' stop-opacity='0.85'/>
+        <stop offset='100%' stop-color='#111' stop-opacity='0.85'/>
+      </linearGradient>
+    </defs>
+    <rect width='100%' height='100%' fill='url(#g)'/>
+    <text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle'
       font-family='system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, sans-serif'
-      font-size='140' fill='white' font-weight='800'&gt;${initials}&lt;/text&gt;
-  &lt;/svg&gt;`;
+      font-size='140' fill='white' font-weight='800'>${initials}</text>
+  </svg>`;
   return "data:image/svg+xml;utf8,"+encodeURIComponent(svg);
 }
 function placeholderWide(label="Photo"){
   const svg = `
-  &lt;svg xmlns='http://www.w3.org/2000/svg' width='1200' height='825'&gt;
-    &lt;defs&gt;&lt;linearGradient id='w' x1='0' y1='0' x2='1' y2='1'&gt;
-      &lt;stop offset='0%' stop-color='#94a3b8'/&gt;&lt;stop offset='100%' stop-color='#475569'/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;
-    &lt;rect width='100%' height='100%' fill='url(#w)'/&gt;
-    &lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'
+  <svg xmlns='http://www.w3.org/2000/svg' width='1200' height='825'>
+    <defs><linearGradient id='w' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#94a3b8'/><stop offset='100%' stop-color='#475569'/></linearGradient></defs>
+    <rect width='100%' height='100%' fill='url(#w)'/>
+    <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'
       font-family='system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, sans-serif'
-      font-size='48' fill='white' opacity='.9'&gt;${label}&lt;/text&gt;
-  &lt;/svg&gt;`;
+      font-size='48' fill='white' opacity='.9'>${label}</text>
+  </svg>`;
   return "data:image/svg+xml;utf8,"+encodeURIComponent(svg);
 }
 function placeholderSquare(label="사진"){
   const svg = `
-  &lt;svg xmlns='http://www.w3.org/2000/svg' width='1000' height='1000'&gt;
-    &lt;defs&gt;&lt;linearGradient id='s' x1='0' y1='0' x2='1' y2='1'&gt;
-      &lt;stop offset='0%' stop-color='#f59e0b'/&gt;&lt;stop offset='100%' stop-color='#ef4444'/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;
-    &lt;rect width='100%' height='100%' fill='url(#s)'/&gt;
-    &lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'
+  <svg xmlns='http://www.w3.org/2000/svg' width='1000' height='1000'>
+    <defs><linearGradient id='s' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#f59e0b'/><stop offset='100%' stop-color='#ef4444'/></linearGradient></defs>
+    <rect width='100%' height='100%' fill='url(#s)'/>
+    <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'
       font-family='system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, sans-serif'
-      font-size='56' fill='white' opacity='.9'&gt;${label}&lt;/text&gt;
-  &lt;/svg&gt;`;
+      font-size='56' fill='white' opacity='.9'>${label}</text>
+  </svg>`;
   return "data:image/svg+xml;utf8,"+encodeURIComponent(svg);
 }
 
 /** ======================
  *  렌더링
  *  ====================== */
-const qs = s =&gt; document.querySelector(s);
-const qsa = s =&gt; Array.from(document.querySelectorAll(s));
+const qs = s => document.querySelector(s);
+const qsa = s => Array.from(document.querySelectorAll(s));
 const state = { data: structuredClone(DATA) };
 
 function renderAll(){
@@ -482,7 +347,7 @@ function renderAll(){
   qs("#heroImage").src = heroImage;
 
   const badgeWrap = qs("#badges"); badgeWrap.innerHTML="";
-  badges.forEach(b =&gt; {
+  badges.forEach(b => {
     const el = document.createElement("span"); el.className="badge"; el.textContent = b;
     badgeWrap.appendChild(el);
   });
@@ -496,40 +361,48 @@ function renderAll(){
 
 function renderMembers(){
   const grid = qs("#memberGrid"); grid.innerHTML="";
-  state.data.members.forEach((m, idx) =&gt; {
+  state.data.members.forEach((m, idx) => {
     const card = document.createElement("article");
     card.className = "card";
     card.innerHTML = `
-      &lt;img class="avatar" alt="${m.name} 사진" src="${m.photo}" loading="lazy" /&gt;
-      &lt;div class="row"&gt;
-        &lt;div&gt;
-          &lt;h4 class="name"&gt;${m.name}&lt;/h4&gt;
-          &lt;div class="role"&gt;${m.role || ""}&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;button class="btn small" data-idx="${idx}" aria-label="${m.name} 상세보기"&gt;상세&lt;/button&gt;
-      &lt;/div&gt;
-      &lt;div class="tags"&gt;${(m.tags||[]).map(t=&gt;`&lt;span class="tag"&gt;${t}&lt;/span&gt;`).join("")}&lt;/div&gt;
-      &lt;div class="quote"&gt;“${m.quote||""}”&lt;/div&gt;
-      &lt;div class="actions"&gt;
-        ${(m.contacts||[]).map(c=&gt;`&lt;a class="btn small" href="${formatLink(c)}" target="_blank" rel="noopener"&gt;📎 ${c.type}&lt;/a&gt;`).join("")}
-      &lt;/div&gt;
+      <img class="avatar" alt="${m.name} 사진" src="${m.photo}" loading="lazy" />
+      <div class="row">
+        <div>
+          <h4 class="name">${m.name}</h4>
+          <div class="role">${m.role || ""}</div>
+        </div>
+        <div class="actions">
+          <button class="btn small" data-idx="${idx}" aria-label="${m.name} 상세보기">상세</button>
+          <button class="btn small" data-upload="${idx}" aria-label="${m.name} 사진 바꾸기">📷 사진 바꾸기</button>
+          <button class="btn small" data-reset="${idx}" aria-label="${m.name} 기본 이미지로">기본이미지</button>
+        </div>
+      </div>
+      <div class="tags">${(m.tags||[]).map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+      <div class="quote">“${m.quote||""}”</div>
+      <div class="actions">
+        ${(m.contacts||[]).map(c=>`<a class="btn small" href="${formatLink(c)}" target="_blank" rel="noopener">📎 ${c.type}</a>`).join("")}
+      </div>
     `;
-    card.querySelector("button[data-idx]").addEventListener("click", ()=&gt; openModal(idx));
+    card.querySelector("button[data-idx]").addEventListener("click", ()=> openModal(idx));
+    card.querySelector("button[data-upload]").addEventListener("click", ()=> pickPhoto(idx));
+    card.querySelector("button[data-reset]").addEventListener("click", ()=> {
+      state.data.members[idx].photo = avatar(m.name, m.color||"#3b82f6");
+      renderMembers(); renderContacts();
+    });
     grid.appendChild(card);
   });
 }
 
 function renderTimeline(){
   const tl = qs("#tl"); tl.innerHTML="";
-  const items = [...state.data.timeline].sort((a,b)=&gt; (a.date||"").localeCompare(b.date||""));
-  items.forEach(it=&gt;{
+  const items = [...state.data.timeline].sort((a,b)=> (a.date||"").localeCompare(b.date||""));
+  items.forEach(it=>{
     const li = document.createElement("li");
-    const d = it.date ? new Date(it.date) : null;
     li.className="item";
     li.innerHTML = `
-      &lt;time&gt;${it.date || ""}&lt;/time&gt;
-      &lt;h4&gt;${it.title||""}&lt;/h4&gt;
-      &lt;p&gt;${it.text||""}&lt;/p&gt;
+      <time>${it.date || ""}</time>
+      <h4>${it.title||""}</h4>
+      <p>${it.text||""}</p>
     `;
     tl.appendChild(li);
   });
@@ -537,30 +410,30 @@ function renderTimeline(){
 
 function renderGallery(){
   const g = qs("#galleryGrid"); g.innerHTML="";
-  (state.data.gallery||[]).forEach((src,i)=&gt;{
+  (state.data.gallery||[]).forEach((src,i)=>{
     const img = document.createElement("img");
     img.alt = `가족 사진 ${i+1}`; img.loading="lazy"; img.src = src;
-    img.addEventListener("click", ()=&gt; openPhoto(src));
+    img.addEventListener("click", ()=> openPhoto(src));
     g.appendChild(img);
   });
 }
 
 function renderContacts(){
   const grid = qs("#contactGrid"); grid.innerHTML="";
-  state.data.members.forEach(m=&gt;{
+  state.data.members.forEach(m=>{
     const card = document.createElement("article"); card.className="card";
     card.innerHTML = `
-      &lt;div class="row"&gt;
-        &lt;div&gt;
-          &lt;h4 class="name"&gt;${m.name}&lt;/h4&gt;
-          &lt;div class="role"&gt;${m.role||""}&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;img src="${m.photo}" alt="${m.name} 아바타" style="width:56px;height:56px;border-radius:12px;object-fit:cover"/&gt;
-      &lt;/div&gt;
-      &lt;div class="tags"&gt;${(m.tags||[]).map(t=&gt;`&lt;span class="tag"&gt;${t}&lt;/span&gt;`).join("")}&lt;/div&gt;
-      &lt;div class="actions"&gt;
-        ${(m.contacts||[]).map(c=&gt;`&lt;a class="btn small" href="${formatLink(c)}" target="_blank" rel="noopener"&gt;📞 ${c.type}: ${escapeHtml(c.value)}&lt;/a&gt;`).join("")}
-      &lt;/div&gt;
+      <div class="row">
+        <div>
+          <h4 class="name">${m.name}</h4>
+          <div class="role">${m.role||""}</div>
+        </div>
+        <img src="${m.photo}" alt="${m.name} 아바타" style="width:56px;height:56px;border-radius:12px;object-fit:cover"/>
+      </div>
+      <div class="tags">${(m.tags||[]).map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+      <div class="actions">
+        ${(m.contacts||[]).map(c=>`<a class="btn small" href="${formatLink(c)}" target="_blank" rel="noopener">📞 ${c.type}: ${escapeHtml(c.value)}</a>`).join("")}
+      </div>
     `;
     grid.appendChild(card);
   });
@@ -577,49 +450,49 @@ function formatLink(c){
   if (/^https?:\/\//.test(v)) return v;
   return v;
 }
-function escapeHtml(s){ return (s||"").replace(/[&amp;&lt;&gt;"']/g, m=&gt;({ "&amp;":"&amp;amp;","&lt;":"&amp;lt;","&gt;":"&amp;gt;",'"':"&amp;quot;","'":"&amp;#39;" }[m])) }
+function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, m=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[m])) }
 
 /** 모달 */
 const modal = qs("#modal"), modalBody = qs("#modalBody");
 qs("#modalClose").addEventListener("click", closeModal);
 qs("#backdrop").addEventListener("click", closeModal);
-document.addEventListener("keydown", e=&gt;{ if(e.key==="Escape") closeModal(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeModal(); });
 
 function openModal(idx){
   const m = state.data.members[idx];
   modalBody.innerHTML = `
-    &lt;h3 id="modalTitle" style="margin:8px 0 12px;font-size:22px"&gt;${m.name} · &lt;span class="muted"&gt;${m.role||""}&lt;/span&gt;&lt;/h3&gt;
-    &lt;div style="display:grid;grid-template-columns: 1fr 1fr; gap:12px"&gt;
-      &lt;img src="${m.photo}" alt="${m.name} 사진" style="width:100%;aspect-ratio:16/11;object-fit:cover;border-radius:12px"/&gt;
-      &lt;div&gt;
-        &lt;p class="muted"&gt;“${m.quote||""}”&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;생일:&lt;/strong&gt; ${m.birthday||"—"}&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;좋아하는 것:&lt;/strong&gt;&lt;br/&gt;
+    <h3 id="modalTitle" style="margin:8px 0 12px;font-size:22px">${m.name} · <span class="muted">${m.role||""}</span></h3>
+    <div style="display:grid;grid-template-columns: 1fr 1fr; gap:12px">
+      <img src="${m.photo}" alt="${m.name} 사진" style="width:100%;aspect-ratio:16/11;object-fit:cover;border-radius:12px"/>
+      <div>
+        <p class="muted">“${m.quote||""}”</p>
+        <p><strong>생일:</strong> ${m.birthday||"—"}</p>
+        <p><strong>좋아하는 것:</strong><br/>
           🍽️ ${m.favorites?.food||"—"} · 🎧 ${m.favorites?.music||"—"} · 🎯 ${m.favorites?.hobby||"—"}
-        &lt;/p&gt;
-        &lt;div class="tags"&gt;${(m.tags||[]).map(t=&gt;`&lt;span class="tag"&gt;${t}&lt;/span&gt;`).join("")}&lt;/div&gt;
-        &lt;div class="actions" style="margin-top:10px"&gt;
-          ${(m.contacts||[]).map(c=&gt;`&lt;a class="btn small" href="${formatLink(c)}" target="_blank" rel="noopener"&gt;📎 ${c.type}&lt;/a&gt;`).join("")}
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
+        </p>
+        <div class="tags">${(m.tags||[]).map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+        <div class="actions" style="margin-top:10px">
+          ${(m.contacts||[]).map(c=>`<a class="btn small" href="${formatLink(c)}" target="_blank" rel="noopener">📎 ${c.type}</a>`).join("")}
+        </div>
+      </div>
+    </div>
   `;
   modal.setAttribute("open","");
   modal.setAttribute("aria-hidden","false");
 }
 function openPhoto(src){
-  modalBody.innerHTML = `&lt;img src="${src}" alt="확대 사진" style="width:100%;max-height:78vh;object-fit:contain;border-radius:12px"/&gt;`;
+  modalBody.innerHTML = `<img src="${src}" alt="확대 사진" style="width:100%;max-height:78vh;object-fit:contain;border-radius:12px"/>`;
   modal.setAttribute("open",""); modal.setAttribute("aria-hidden","false");
 }
 function closeModal(){ modal.removeAttribute("open"); modal.setAttribute("aria-hidden","true"); }
 
 /** 탭 전환 */
-qsa(".tab").forEach(b=&gt;{
-  b.addEventListener("click", ()=&gt;{
-    qsa(".tab").forEach(x=&gt;x.classList.remove("active"));
+qsa(".tab").forEach(b=>{
+  b.addEventListener("click", ()=>{
+    qsa(".tab").forEach(x=>x.classList.remove("active"));
     b.classList.add("active");
     const id = b.dataset.tab;
-    qsa(".panel").forEach(p=&gt; p.hidden = (p.id!==id));
+    qsa(".panel").forEach(p=> p.hidden = (p.id!==id));
   });
 });
 
@@ -627,10 +500,10 @@ qsa(".tab").forEach(b=&gt;{
 const themeBtn = qs("#themeBtn");
 const root = document.documentElement;
 const savedTheme = localStorage.getItem("family-theme");
-if(savedTheme==="dark" || (savedTheme==null &amp;&amp; window.matchMedia &amp;&amp; window.matchMedia("(prefers-color-scheme: dark)").matches)){
+if(savedTheme==="dark" || (savedTheme==null && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)){
   root.classList.add("dark");
 }
-themeBtn.addEventListener("click", ()=&gt;{
+themeBtn.addEventListener("click", ()=>{
   root.classList.toggle("dark");
   localStorage.setItem("family-theme", root.classList.contains("dark") ? "dark" : "light");
 });
@@ -643,51 +516,78 @@ const applyBtn = qs("#applyBtn");
 const exportBtn = qs("#exportBtn");
 const editHint = qs("#editHint");
 
-editBtn.addEventListener("click", ()=&gt;{
+editBtn.addEventListener("click", ()=>{
   jsonInput.value = JSON.stringify(state.data, null, 2);
   editor.toggleAttribute("open");
 });
-applyBtn.addEventListener("click", ()=&gt;{
+applyBtn.addEventListener("click", ()=>{
   try{
     const parsed = JSON.parse(jsonInput.value);
     state.data = parsed;
     renderAll();
     editHint.textContent = "적용 완료!";
-    setTimeout(()=&gt; editHint.textContent="", 1200);
+    setTimeout(()=> editHint.textContent="", 1200);
   }catch(e){
     editHint.textContent = "JSON 오류: " + e.message;
   }
 });
-exportBtn.addEventListener("click", ()=&gt;{
+exportBtn.addEventListener("click", ()=>{
   const html = buildExportHtml(state.data);
   const blob = new Blob([html], {type:"text/html;charset=utf-8"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = "우리_가족_소개.html";
   a.click();
-  setTimeout(()=&gt;URL.revokeObjectURL(a.href), 1000);
+  setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
 });
 
 /** 내보내기용 HTML 생성 */
 function buildExportHtml(data){
-  // 현재 문서의 &lt;html&gt;을 가져와서 DATA 부분만 교체
   const serializer = new XMLSerializer();
   const doc = document.documentElement.cloneNode(true);
-  // 에디터는 기본 닫힘
   doc.querySelector("#editor")?.removeAttribute("open");
-  // 데이터 스크립트 삽입(이 파일 구조에 맞춰 DATA 상수만 교체)
   const scripts = doc.querySelectorAll("script");
-  scripts.forEach(sc=&gt;{
+  scripts.forEach(sc=>{
     if(sc.textContent.includes("const DATA =")){
-      sc.textContent = sc.textContent.replace(/const DATA = [\\s\\S]*?;\\n/, "const DATA = "+JSON.stringify(data, null, 2)+";\\n");
+      sc.textContent = sc.textContent.replace(/const DATA = [\s\S]*?;\n/, "const DATA = "+JSON.stringify(data, null, 2)+";\n");
     }
   });
-  return "&lt;!DOCTYPE html&gt;\n"+serializer.serializeToString(doc);
+  return "<!DOCTYPE html>\n"+serializer.serializeToString(doc);
 }
+
+/** =========== 사진 업로드(추가) =========== */
+/** 전역 숨김 파일 선택기 하나만 사용 */
+const filePicker = document.createElement("input");
+filePicker.type = "file";
+filePicker.accept = "image/*";
+filePicker.hidden = true;
+document.body.appendChild(filePicker);
+
+let photoTargetIdx = null;
+function pickPhoto(idx){
+  photoTargetIdx = idx;
+  filePicker.click();
+}
+filePicker.addEventListener("change", ()=>{
+  const f = filePicker.files && filePicker.files[0];
+  if (!f) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    // 이미지 데이터 URL 저장
+    state.data.members[photoTargetIdx].photo = reader.result;
+    renderMembers(); renderContacts();
+    // 편집기 열려 있으면 JSON도 최신화
+    if (editor.hasAttribute("open")) {
+      jsonInput.value = JSON.stringify(state.data, null, 2);
+    }
+    // 선택값 초기화
+    filePicker.value = "";
+  };
+  reader.readAsDataURL(f);
+});
 
 /** 초기 렌더 */
 renderAll();
 </script>
-
-
-</body></html>
+</body>
+</html>
